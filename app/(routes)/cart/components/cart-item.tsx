@@ -56,15 +56,14 @@ const CartItem = (props: CartItemProps) => {
           <ProductCategory category={product.category?.categoryName || "Sin categoría"} />
         </div>
 
-        {/* Botón eliminar */}
         <div>
           <button
             className={cn(
-              "rounded-full flex items-center justify-center bg-white dark:text-black border shadow-md p-1 hover:scale-110 transition hover:bg-red-50 dark:hover:bg-red-900/20"
+              "rounded-full flex items-center justify-center bg-white border shadow-md p-1 hover:scale-110 transition duration-200",
             )}
             onClick={() => removeItem(product.id)}
           >
-            <X size={20} />
+            <X size={20} className="dark:text-black"/>
           </button>
         </div>
       </div>

@@ -12,15 +12,11 @@ import {
 import SkeletonSchema from "./skeletonSchema";
 import { ProductType } from "@/types/product";
 import { Card, CardContent } from "./ui/card";
-import { Expand, ShoppingCart } from "lucide-react";
-import IconButton from "./icon-button";
 import { useRouter } from "next/navigation";
-import { useCart } from "@/hooks/use-cart";
 
 const FeaturedProducts = () => {
   const { loading, result }: ResponseType = useGetFeaturedProducts();
   const router = useRouter();
-  const { addItem } = useCart();
 
   return (
     <div className="max-w-6xl py-4 mx-auto sm:py-16 sm:px-24">
@@ -40,7 +36,10 @@ const FeaturedProducts = () => {
                   className="basis-2/3 sm:basis-1/2 lg:basis-1/3 group"
                 >
                   <div className="py-1 px-1 sm:px-2">
-                    <Card className="py-2 sm:py-4 border border-gray-200 shadow-none">
+                    <Card
+                      onClick={() => router.push(`product/${slug}`)}
+                      className="py-2 sm:py-4 border border-gray-200 shadow-none cursor-pointer"
+                    >
                       <CardContent className="relative flex items-center justify-center p-2 h-28 sm:h-40 md:h-52 lg:h-64">
                         <div className="relative w-full h-full flex items-center justify-center">
                           <img
@@ -48,27 +47,7 @@ const FeaturedProducts = () => {
                             alt="Image featured"
                             className="max-w-full max-h-full object-contain select-none"
                           />
-                          <div className="absolute hidden w-full transition duration-200 opacity-0 group-hover:opacity-100 bottom-2 sm:bottom-5 lg:block">
-                            <div className="flex justify-center gap-x-4 sm:gap-x-6">
-                              <IconButton
-                                onClick={() => router.push(`product/${slug}`)}
-                                icon={
-                                  <Expand size={16} className="sm:size-5" />
-                                }
-                                className="text-gray-600 bg-white/90 hover:bg-white"
-                              />
-                              <IconButton
-                                onClick={() => addItem(product)}
-                                icon={
-                                  <ShoppingCart
-                                    size={16}
-                                    className="sm:size-5"
-                                  />
-                                }
-                                className="text-gray-600 bg-white/90 hover:bg-white"
-                              />
-                            </div>
-                          </div>
+                          <div className="absolute hidden w-full transition duration-200 opacity-0 group-hover:opacity-100 bottom-2 sm:bottom-5 lg:block"></div>
                         </div>
                       </CardContent>
                       <div className="px-3 sm:px-6 pb-2 sm:pb-4">

@@ -1,14 +1,11 @@
-import IconButton from "@/components/icon-button";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { useCart } from "@/hooks/use-cart";
 import { formatPrice } from "@/lib/formatPrice";
 import { ProductType } from "@/types/product";
-import { Expand, ShoppingCart } from "lucide-react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 type ProductCardProps = {
   product: ProductType;
@@ -16,12 +13,10 @@ type ProductCardProps = {
 
 const ProductCard = (props: ProductCardProps) => {
   const { product } = props;
-  const router = useRouter();
 
-  const {addItem} = useCart()
 
   return (
-    <div
+    <Link href={`/product/${product.slug}`}
       className="relative p-2 transition-all duration-100 rounded-lg hover:shadow-md h-fit"
     >
       <div className="absolute flex items-center justify-between gap-3 px-2 z-1 top-4">
@@ -47,16 +42,6 @@ const ProductCard = (props: ProductCardProps) => {
                 className="rounded-xl"
               />
               <div className="absolute w-full px-6 transition duration-200 opacity-0 group-hover:opacity-100 bottom-5">
-                <div className="flex justify-center gap-x-6">
-                  <IconButton
-                    onClick={() => router.push(`/product/${product.slug}`)}
-                    icon={<Expand size={20} className="text-gray-600" />}
-                  />
-                  <IconButton
-                    onClick={() => addItem(product)}
-                    icon={<ShoppingCart size={20} className="text-gray-600" />}
-                  />
-                </div>
               </div>
             </CarouselItem>
           ))}
@@ -66,7 +51,7 @@ const ProductCard = (props: ProductCardProps) => {
         {product.brand} {product.model}
       </p>
       <p className="font-bold text-center">{formatPrice(product.price)}</p>
-    </div>
+    </Link>
   );
 };
 
