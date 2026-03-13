@@ -43,7 +43,7 @@ export default function OrdersPage() {
                   {order.products.map((product, i) => (
                     <div key={i} className="flex gap-5 my-2">
                       <img
-                        src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${product?.image}`}
+                        src={`${product?.image}`}
                         alt="Product image"
                         className="h-24 rounded-lg"
                       />
