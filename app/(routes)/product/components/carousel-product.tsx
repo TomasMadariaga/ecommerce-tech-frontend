@@ -10,7 +10,7 @@ interface CarouselProductProps {
 const CarouselProduct = (props: CarouselProductProps) => {
   const { images } = props;
   return (
-    <div className="sm:px-16">
+    <div className="sm:px-16 w-3/4 sm:w-auto">
       <Carousel>
         <CarouselContent>
             {images?.map((image) => (

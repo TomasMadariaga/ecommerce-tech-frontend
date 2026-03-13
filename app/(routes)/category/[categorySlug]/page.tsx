@@ -57,7 +57,7 @@ export default function Page() {
           setPrice={setPrice}
         />
 
-        <div className="grid gap-5 mt-8 sm:grid-cols-2 md:grid-cols-3 md:gap-10">
+        <div className="sm:grid flex flex-col items-center gap-5 mt-8 sm:grid-cols-2 md:grid-cols-3 md:gap-10">
           {loading && <SkeletonSchema grid={3} />}
           
           {!loading && filteredProducts.map((product: ProductType) => (

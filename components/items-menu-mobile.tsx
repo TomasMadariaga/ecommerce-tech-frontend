@@ -9,7 +9,7 @@ const ItemsMenuMobile = () => {
             <PopoverTrigger>
                 <Menu />
             </PopoverTrigger>
-            <PopoverContent>
+            <PopoverContent className="flex flex-col gap-2">
                 <Link href="/category/processor" className="block">
                     Procesadores
                 </Link>

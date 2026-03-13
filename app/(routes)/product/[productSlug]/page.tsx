@@ -24,7 +24,7 @@ export default function Page() {
   return (
     <div className="max-w-6xl py-4 mx-auto sm:py-32 sm:px-24">
       <div className="grid sm:grid-cols-2">
-        <div>
+        <div className="flex justify-center items-center">
           <CarouselProduct images={result[0]?.images}/>
         </div>
 
