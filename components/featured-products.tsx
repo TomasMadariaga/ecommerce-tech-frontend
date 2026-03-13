@@ -43,7 +43,7 @@ const FeaturedProducts = () => {
                       <CardContent className="relative flex items-center justify-center p-2 h-28 sm:h-40 md:h-52 lg:h-64">
                         <div className="relative w-full h-full flex items-center justify-center">
                           <img
-                            src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${images[0].url}`}
+                            src={`${images[0].url}`}
                             alt="Image featured"
                             className="max-w-full max-h-full object-contain select-none"
                           />
