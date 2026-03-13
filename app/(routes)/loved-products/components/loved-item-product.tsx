@@ -24,7 +24,9 @@ const LovedItemProduct = (props: LovedItemProductProps) => {
 
   return (
     <li className="flex py-6 border-b">
-      <ProductImage slug={product.slug} url={product.images[0].url}/>
+      <div className="w-24 sm:w-32">
+        <ProductImage slug={product.slug} url={product.images[0].url} />
+      </div>
       <div className="flex justify-between flex-1 px-6">
         <div>
           <ProductTitlePrice

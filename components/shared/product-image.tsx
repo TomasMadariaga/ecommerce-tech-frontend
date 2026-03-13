@@ -11,9 +11,9 @@ const ProductImage = (props: ProductImageProps) => {
   return (
     <div onClick={() => router.push(`/product/${slug}`)}>
       <img
-        src={`${url}`}
+        src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${url}`}
         alt="Product"
-        className="w-24 h-24 overflow-hidden rounded-md sm:w-auto sm:h-32"
+        className="overflow-hidden rounded-md sm:w-auto sm:h-32"
       />
     </div>
   );
