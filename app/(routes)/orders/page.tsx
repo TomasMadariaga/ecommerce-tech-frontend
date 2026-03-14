@@ -11,7 +11,6 @@ export default function OrdersPage() {
   if (loading) {
     return <div className="text-center py-20">Cargando...</div>;
   }
-  console.log(orders)
 
   if (!user) {
     return (

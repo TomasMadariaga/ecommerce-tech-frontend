@@ -8,7 +8,7 @@ const PageSuccess = () => {
   const router = useRouter();
   return (
     <div className="max-w-5xl p-4 mx-auto sm:py-16 sm:px-24">
-      <div className="flex flex-col-reverse gap-2 sm:flex-row">
+      <div className="flex flex-col gap-5 sm:gap-2 sm:flex-row">
         <div className="flex justify-center md:min-w-100">
           <Image
             src="/success.jpg"
@@ -18,7 +18,7 @@ const PageSuccess = () => {
             className="rounded-lg"
           />
         </div>
-        <div>
+        <div className="text-center sm:text-left">
           <h1 className="text-3xl">Gracias por comprar!</h1>
           <p className="my-3">
             En breve, nuestro equipo se pondra manos a la obra para seleccionar

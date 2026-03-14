@@ -4,83 +4,19 @@ import { Separator } from "@/components/ui/separator";
 import { useCart } from "@/hooks/use-cart";
 import { formatPrice } from "@/lib/formatPrice";
 import CartItem from "./components/cart-item";
-import { makePaymentRequest } from "@/api/payment";
-import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "next/navigation";
+import { usePayment } from "@/api/usePaymentProvider";
 
 export default function Page() {
-  const { items, removeAll } = useCart();
-  const { user, token } = useAuth();
+  const { items } = useCart();
+  const { user } = useAuth();
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState<"stripe" | "mercadopago" | null>(
-    null,
-  );
+  const { buyStripe, buyMercadoPago, isLoading } = usePayment();
 
   const prices = items?.map((product) => product?.price * product?.quantity);
   const totalPrice = prices.reduce((total, price) => total + price, 0);
-
-  const buyStripe = async () => {
-    try {
-      if (!user || !token) {
-        router.push("/login?redirect=/cart");
-        return;
-      }
-
-      setIsLoading("stripe");
-
-      const res = await makePaymentRequest.post(
-        "/api/orders",
-        {
-          products: items,
-          paymentMethod: "stripe",
-          userId: user.id,
-          token: token,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        },
-      );
-
-      window.location.href = res.data.url;
-      removeAll();
-    } catch (error) {
-      console.log(error);
-      setIsLoading(null);
-    }
-  };
-
-  const buyMercadoPago = async () => {
-    try {
-      if (!user || !token) {
-        router.push("/login?redirect=/cart");
-        return;
-      }
-
-      setIsLoading("mercadopago");
-      const res = await makePaymentRequest.post(
-        "/api/orders",
-        {
-          products: items,
-          paymentMethod: "mercadopago",
-          userId: user.id,
-          token: token,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        },
-      );
-      window.location.href = res.data.initPoint;
-      removeAll();
-    } catch (error) {
-      setIsLoading(null);
-    }
-  };
 
   return (
     <div className="max-w-6xl px-4 py-16 mx-auto sm:px-6 lg:px-8">

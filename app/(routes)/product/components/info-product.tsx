@@ -33,11 +33,11 @@ const InfoProduct = (props: InfoProductProps) => {
       <p>{product?.description}</p>
       <Separator className="my-4" />
       <p className="my-4 text-2xl">{formatPrice(product?.price)}</p>
-      <div className="flex items-center gap-5">
-        <Button className="w-full" onClick={() => addItem(product)}>
+      <div className="flex items-center gap-5 w-full">
+        <Button className="w-5/6" onClick={() => addItem(product)}>
           Comprar
         </Button>
-        <button>
+        <button className="w-full">
           <Heart
             width={30}
             strokeWidth={1}
