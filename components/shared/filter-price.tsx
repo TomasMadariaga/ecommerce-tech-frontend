@@ -23,7 +23,7 @@ const FilterPrice = ({ setPrice, price }: FilterPriceProps) => {
 
       <div className="px-2">
         <Slider
-        className="w-[150px]"
+        className="w-37.5"
           value={price}
           min={0}
           max={2000}

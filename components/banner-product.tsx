@@ -5,7 +5,6 @@ const BannerProduct = () => {
   return (
     <>
       <div className="mt-4 text-center">
-        {/* <p></p> */}
         <h4 className="mt-2 text-5xl font-extrabold uppercase">
           PC Gaming
         </h4>
@@ -14,7 +13,7 @@ const BannerProduct = () => {
           Comprar
         </Link>
       </div>
-      <div className="h-[350px] bg-cover lg:h-[600px] bg-[url('/slider-image.jpg')] bg-center mt-5"/>
+      <div className="h-87.5 bg-cover lg:h-150 bg-[url('/slider-image.jpg')] bg-center mt-5"/>
     </>
   );
 };

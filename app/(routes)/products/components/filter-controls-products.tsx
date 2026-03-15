@@ -11,7 +11,7 @@ const FiltersControlsProducts = (props: FiltersControlsProductsProps) => {
     const {setFilterBrand, setPrice, price} = props;
 
     return ( 
-        <div className="sm:w-[250px] sm:sticky sm:top-25 h-fit">
+        <div className="sm:w-62.5 sm:sticky sm:top-25 h-fit">
       <FilterBrand
         setFilterBrand={setFilterBrand}
       />

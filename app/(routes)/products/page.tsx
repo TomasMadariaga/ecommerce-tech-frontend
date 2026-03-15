@@ -8,6 +8,7 @@ import { ProductType } from "@/types/product";
 import ProductCard from "../category/components/product-card";
 import { ResponseType } from "@/types/response";
 import FiltersControlsProducts from "./components/filter-controls-products";
+import SkeletonFilterSchema from "@/components/skeletonFilterSchema";
 
 export default function Page() {
   const { result, loading }: ResponseType = useGetProducts();
@@ -15,7 +16,6 @@ export default function Page() {
 
   const [filterBrand, setFilterBrand] = useState("");
 
-  
   const [price, setPrice] = useState<[number, number]>([0, maxPrice]);
 
   const filteredProducts =
@@ -29,30 +29,30 @@ export default function Page() {
     }) ?? [];
 
   useEffect(() => {
-  if (!result || result.length === 0) return;
+    if (!result || result.length === 0) return;
 
-  const highestPrice = Math.max(
-    ...result.map((product: ProductType) => product.price)
-  );
+    const highestPrice = Math.max(
+      ...result.map((product: ProductType) => product.price),
+    );
 
-  setPrice([0, highestPrice]);
-}, [result]);
-
-  
+    setPrice([0, highestPrice]);
+  }, [result]);
 
   return (
-    <div className="max-w-6xl py-4 mx-auto sm:py-16 sm:px-24">
-      {result !== null && !loading && (
+    <div className="max-w-6xl p-4 mx-auto sm:py-16 sm:px-24">
         <h1 className="text-3xl font-medium">Productos</h1>
-      )}
+      
       <Separator />
 
       <div className="sm:flex sm:justify-between">
-        <FiltersControlsProducts
-          setFilterBrand={setFilterBrand}
-          price={price}
-          setPrice={setPrice}
-        />
+        {loading && <SkeletonFilterSchema grid={1}/>}
+        {!loading && (
+          <FiltersControlsProducts
+            setFilterBrand={setFilterBrand}
+            price={price}
+            setPrice={setPrice}
+          />
+        )}
 
         <div className="sm:grid flex flex-col items-center gap-5 mt-8 sm:grid-cols-2 md:grid-cols-3 md:gap-10">
           {loading && <SkeletonSchema grid={3} />}

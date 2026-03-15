@@ -20,7 +20,6 @@ const FilterBrand = (props: FilterBrandProps) => {
     <div className="my-5">
       <p className="mb-3 font-bold">Marca</p>
 
-      {loading && result == null && <p>Cargando marca...</p>}
       <RadioGroup
         onValueChange={(value) => setFilterBrand(value)}
         defaultValue=""
@@ -33,7 +32,7 @@ const FilterBrand = (props: FilterBrandProps) => {
         </div>
 
         {slicedBrands.map((brand: string) => (
-          <div key={brand} className={`flex items-center space-x-2 md:mb-2 mb-1`}>
+          <div key={brand} className={`flex items-center space-x-2 mb-2`}>
             <RadioGroupItem value={brand} id={brand} />
             <Label htmlFor={brand} className="cursor-pointer">
               {brand}
@@ -44,7 +43,7 @@ const FilterBrand = (props: FilterBrandProps) => {
       {
         <p
           onClick={() => setShowbrands(!showBrands)}
-          className="text-center cursor-pointer underline w-[150px]"
+          className="text-center cursor-pointer underline w-37.5"
         >
           {!showBrands ? "Ver mas..." : "Ver menos"}
         </p>
