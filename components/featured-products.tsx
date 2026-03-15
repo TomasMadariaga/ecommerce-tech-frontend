@@ -45,7 +45,7 @@ const FeaturedProducts = () => {
                           <img
                             src={`${images[0].url}`}
                             alt="Image featured"
-                            className="max-w-full max-h-full object-contain select-none"
+                            className="max-w-full max-h-full object-contain select-none rounded-md"
                           />
                           <div className="absolute hidden w-full transition duration-200 opacity-0 group-hover:opacity-100 bottom-2 sm:bottom-5 lg:block"></div>
                         </div>

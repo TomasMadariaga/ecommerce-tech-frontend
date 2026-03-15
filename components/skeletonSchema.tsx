@@ -8,7 +8,7 @@ const SkeletonSchema = (props: SkeletonSchemaProps) => {
     const {grid} = props;
     return (
         Array.from({length: grid}).map((_, index) => (
-            <div key={index} className="flex flex-col gap-8 mx-auto space-y-3">
+            <div key={index} className="flex flex-col gap-8 mx-auto space-y-3 p-4">
                 <Skeleton className="h-31.25 w-62.5 rounded-xl"/>
                 <div className="space-y-2">
                     <Skeleton className="h-4 w-62.5"/>
