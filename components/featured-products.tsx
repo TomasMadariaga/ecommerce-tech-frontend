@@ -25,7 +25,7 @@ const FeaturedProducts = () => {
       </h3>
       <Carousel className="px-2 sm:px-0">
         <CarouselContent className="-ml-1 md:-ml-4">
-          {loading && <SkeletonSchema grid={3} />}
+          {loading && <SkeletonSchema grid={3} className="flex gap-4 px-4 -ml-4 sm:ml-0 overflow-visible shrink-0 w-64 sm:w-72"/>}
           {result !== null &&
             result.map((product: ProductType) => {
               const { id, slug, images, model, price, brand } = product;
