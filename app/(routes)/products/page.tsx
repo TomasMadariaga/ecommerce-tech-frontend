@@ -39,7 +39,7 @@ export default function Page() {
 
   return (
     <div className="max-w-6xl p-4 mx-auto sm:py-16 sm:px-24">
-      <div className="flex items-center justify-between mb-1">
+      <div className="flex items-center justify-between mb-2">
         {result !== null && !loading ? (
           <h1 className="text-3xl font-medium">Productos</h1>
         ) : (
@@ -105,8 +105,8 @@ export default function Page() {
           )}
         </div>
 
-        <div className="grid grid-cols-2 gap-5 mt-8 sm:grid-cols-2 md:grid-cols-3 md:gap-10 justify-items-center">
-          {loading && <SkeletonSchema grid={3} />}
+        <div className="grid grid-cols-2 mt-8 sm:grid-cols-2 md:grid-cols-3 md:gap-10 justify-items-center">
+          {loading && <SkeletonSchema grid={6}/>}
           {filteredProducts !== null &&
             !loading &&
             filteredProducts.map((product: ProductType) => (

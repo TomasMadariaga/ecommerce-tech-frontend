@@ -1,22 +1,25 @@
 import { Skeleton } from "./ui/skeleton";
 
 type SkeletonSchemaProps = {
-    grid: number
-}
+  grid: number;
+};
 
 const SkeletonSchema = (props: SkeletonSchemaProps) => {
-    const {grid} = props;
-    return (
-        Array.from({length: grid}).map((_, index) => (
-            <div key={index} className="flex flex-col gap-8 mx-auto space-y-3 p-4">
-                <Skeleton className="h-31.25 w-62.5 rounded-xl"/>
-                <div className="space-y-2">
-                    <Skeleton className="h-4 w-62.5"/>
-                    <Skeleton className="h-4 w-62.5"/>
-                </div>  
-            </div>
-        ))
-    );
-}
+  const { grid } = props;
+  return Array.from({ length: grid }).map((_, index) => (
+    <div
+      key={index}
+      className={`flex flex-col gap-3 mx-auto w-full max-w-75 sm:max-w-none p-4`}
+    >
+      <div className="w-full flex justify-center">
+        <Skeleton className="w-full sm:w-64 h-32 sm:h-48 rounded-xl" />
+      </div>
+      <div className="space-y-2 w-full">
+        <Skeleton className="h-4 w-1/2 sm:w-48 mx-auto" />
+        <Skeleton className="h-4 w-1/3 sm:w-40 mx-auto" />
+      </div>
+    </div>
+  ));
+};
 
 export default SkeletonSchema;
