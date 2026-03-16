@@ -114,7 +114,7 @@ export default function Page() {
           )}
         </div>
 
-        <div className="sm:grid flex flex-col items-center gap-5 mt-8 sm:grid-cols-2 md:grid-cols-3 md:gap-10">
+        <div className="grid grid-cols-2 justify-items-center gap-5 mt-8 sm:grid-cols-2 md:grid-cols-3 md:gap-10">
           {loading && <SkeletonSchema grid={3} />}
 
           {!loading &&

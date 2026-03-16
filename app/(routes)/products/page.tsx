@@ -105,12 +105,12 @@ export default function Page() {
           )}
         </div>
 
-        <div className="sm:grid flex flex-col items-center gap-5 mt-8 sm:grid-cols-2 md:grid-cols-3 md:gap-10">
+        <div className="grid grid-cols-2 gap-5 mt-8 sm:grid-cols-2 md:grid-cols-3 md:gap-10 justify-items-center">
           {loading && <SkeletonSchema grid={3} />}
           {filteredProducts !== null &&
             !loading &&
             filteredProducts.map((product: ProductType) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard key={product.id} product={product}/>
             ))}
           {!loading && filteredProducts.length === 0 && (
             <p className="col-span-2 text-center text-gray-500">
