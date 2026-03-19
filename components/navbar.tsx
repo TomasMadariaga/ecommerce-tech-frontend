@@ -1,4 +1,3 @@
-// components/Navbar.tsx
 "use client";
 
 import { useRouter } from "next/navigation";
@@ -8,22 +7,20 @@ import ItemsMenuMobile from "./items-menu-mobile";
 import ToggleTheme from "./toggle-theme";
 import { useCart } from "@/hooks/use-cart";
 import { useLovedProducts } from "@/hooks/use-loved-products";
-import { useAuth } from "@/contexts/AuthContext"; // ← Importar useAuth
+import { useAuth } from "@/contexts/AuthContext";
 import { useState } from "react";
 
 const Navbar = () => {
   const router = useRouter();
   const cart = useCart();
   const { lovedItems } = useLovedProducts();
-  const { user, logout } = useAuth(); // ← Obtener user y logout
+  const { user, logout } = useAuth();
   const [showUserMenu, setShowUserMenu] = useState(false);
 
   const handleUserClick = () => {
     if (user) {
-      // Si está logueado, mostrar menú desplegable o ir al perfil
       setShowUserMenu(!showUserMenu);
     } else {
-      // Si no está logueado, ir al login
       router.push("/login");
     }
   };
