@@ -13,7 +13,7 @@ const urbanist = Urbanist({
 });
 
 export const metadata: Metadata = {
-  title: "Tomas E-commerce",
+  title: "Componentify",
   description: "Welcome to my e-commerce from Tomas",
 };
 
